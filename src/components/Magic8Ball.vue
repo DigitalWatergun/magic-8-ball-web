@@ -1,11 +1,7 @@
 <template>
   <div class="magic8ball">
     <h1>Magic 8 Ball</h1>
-    <img
-      class="ball-image"
-      src="./../assets/magic-8-ball.png"
-      v-on:click="changePicture()"
-    />
+    <img class="ball-image" :src="require('@/assets/' + image)" />
     <p>{{ response }}</p>
     <input
       id="questionbox"
@@ -26,30 +22,33 @@ export default {
   name: "Magic8Ball",
   data() {
     return {
-      defaultImg: "/src/assets/magic-8-ball.png",
-      images: [
-        "./../assets/magic-8-ball.png",
-        "./../assets/magic-8-ball-tri.png",
-      ],
+      image: "magic-8-ball.png",
       response: "",
       buttonText: "Shake 8 Ball",
       isShaking: false,
-      index: 0,
     };
   },
   methods: {
     start() {
       this.isShaking = true;
       document.getElementById("questionbox").disabled = true;
+      this.shake8ball();
       setTimeout(() => {
+        this.image = "magic-8-ball-tri.png";
         this.isShaking = false;
         document.getElementById("questionbox").disabled = false;
         this.response = generateResponse();
         this.buttonText = "Shake again!";
       }, 3000);
     },
-    changeImage() {
-      this.index = ++this.index % this.images.length;
+    shake8ball() {
+      this.image = "magic-8-ball-up.png";
+      setTimeout(() => {
+        this.image = "magic-8-ball-down.png";
+      }, 1000);
+      setTimeout(() => {
+        this.image = "magic-8-ball-up.png";
+      }, 2000);
     },
   },
 };
