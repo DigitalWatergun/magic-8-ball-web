@@ -1,8 +1,10 @@
 <template>
   <div class="magic8ball">
-    <h1>Magic 8 Ball</h1>
-    <img class="ball-image" :src="require('@/assets/' + image)" />
-    <p>{{ response }}</p>
+    <h1>MAGIC <span>8</span> BALL</h1>
+    <div class="ball-image-container">
+      <img class="ball-image" :src="require('@/assets/' + image)" />
+      <div class="ball-text">{{ response }}</div>
+    </div>
     <input
       id="questionbox"
       type="text"
@@ -34,7 +36,7 @@ export default {
       document.getElementById("questionbox").disabled = true;
       this.shake8ball();
       setTimeout(() => {
-        this.image = "magic-8-ball-tri.png";
+        this.image = "magic-8-ball-answer.png";
         this.isShaking = false;
         document.getElementById("questionbox").disabled = false;
         this.response = generateResponse();
@@ -55,9 +57,33 @@ export default {
 </script>
 
 <style>
+h1 {
+  color: white;
+  font-size: 50pt;
+}
+
+h1 span {
+  color: #075e93;
+}
+
 .ball-image {
   width: 400px;
   height: 400px;
+}
+
+.ball-image-container {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.ball-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .magic8ball {
@@ -68,6 +94,7 @@ export default {
 }
 
 .questionbox {
+  margin-top: 30px;
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;

@@ -1,28 +1,45 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-  <Magic8Ball />
+  <div class="main-container">
+    <Magic8Ball />
+  </div>
 </template>
 
 <script>
-// import HelloWorld from "./components/HelloWorld.vue";
 import Magic8Ball from "./components/Magic8Ball.vue";
 
 export default {
   name: "App",
   components: {
-    // HelloWorld,
     Magic8Ball,
   },
 };
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  background: url("@/assets/bg.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.main-container {
+  min-height: 100%;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: Roboto, sans-serif;
+  padding: 100px;
   text-align: center;
-  margin-top: 60px;
 }
 </style>
