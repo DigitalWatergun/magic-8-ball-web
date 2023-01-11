@@ -32,6 +32,7 @@ export default {
   },
   methods: {
     start() {
+      this.response = "";
       this.isShaking = true;
       document.getElementById("questionbox").disabled = true;
       this.shake8ball();
@@ -84,6 +85,12 @@ h1 span {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
 }
 
 .magic8ball {
@@ -105,3 +112,6 @@ h1 span {
   display: block;
 }
 </style>
+
+<!-- 075E93
+0D2A55 -->
