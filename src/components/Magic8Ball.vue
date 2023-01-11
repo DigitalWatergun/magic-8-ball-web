@@ -1,17 +1,16 @@
 <template>
-  <div class="magic8ball">
+  <div class="magic-8-ball">
     <h1>MAGIC <span>8</span> BALL</h1>
     <div class="ball-image-container">
       <img class="ball-image" :src="require('@/assets/' + image)" />
       <div class="ball-text">{{ response }}</div>
     </div>
     <input
-      id="questionbox"
+      id="question-box"
+      placeholder="Type your question here..."
       type="text"
-      class="questionbox"
-      placeholder="Ask a question..."
     />
-    <button class="startbutton" @click="start" :disabled="isShaking">
+    <button class="start-button" @click="start" :disabled="isShaking">
       {{ buttonText }}
     </button>
   </div>
@@ -34,12 +33,12 @@ export default {
     start() {
       this.response = "";
       this.isShaking = true;
-      document.getElementById("questionbox").disabled = true;
+      document.getElementById("question-box").disabled = true;
       this.shake8ball();
       setTimeout(() => {
         this.image = "magic-8-ball-answer.png";
         this.isShaking = false;
-        document.getElementById("questionbox").disabled = false;
+        document.getElementById("question-box").disabled = false;
         this.response = generateResponse();
         this.buttonText = "Shake again!";
       }, 3000);
@@ -93,23 +92,36 @@ h1 span {
   font-size: 20px;
 }
 
-.magic8ball {
+.magic-8-ball {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.questionbox {
-  margin-top: 30px;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  width: 200px;
+.start-button {
+  display: block;
+  margin-top: 40px;
 }
 
-.startbutton {
-  display: block;
+#question-box {
+  font-size: 1rem;
+  outline: none;
+  border: 0px;
+  border-bottom: 2px solid;
+  border-bottom-color: white;
+  padding: 1rem 0.1rem;
+  color: white;
+  transition: 0.1s ease-out;
+  background-color: transparent;
+  width: 300px;
+}
+
+#question-box:disabled {
+  border: 0px;
+  border-bottom: 2px solid;
+  border-bottom-color: gray;
+  color: gray;
 }
 </style>
 
