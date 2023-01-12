@@ -9,6 +9,7 @@
       id="question-box"
       placeholder="Type your question here..."
       type="text"
+      v-on:keyup.enter="start"
     />
     <button class="start-button" @click="start" :disabled="isShaking">
       {{ buttonText }}
@@ -102,6 +103,15 @@ h1 span {
 .start-button {
   display: block;
   margin-top: 40px;
+  border-radius: 5px;
+  color: #0d2a55;
+  background-color: white;
+  font-size: large;
+  padding: 10px 15px;
+}
+
+.start-button:disabled {
+  background-color: rgb(255, 255, 255, 0.3);
 }
 
 #question-box {
