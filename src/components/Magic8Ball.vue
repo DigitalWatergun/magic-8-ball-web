@@ -40,9 +40,11 @@ export default {
         this.image = "magic-8-ball-answer.png";
         this.isShaking = false;
         document.getElementById("question-box").disabled = false;
-        this.response = generateResponse();
         this.buttonText = "Shake again!";
       }, 3000);
+      setTimeout(() => {
+        this.response = generateResponse();
+      }, 3025);
     },
     shake8ball() {
       this.image = "magic-8-ball-up.png";
