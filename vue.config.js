@@ -1,5 +1,5 @@
 const { defineConfig } = require("@vue/cli-service");
 module.exports = defineConfig({
-  publicPath: "/project name/",
+  publicPath: "/magic-8-ball-web/",
   transpileDependencies: true,
 });
