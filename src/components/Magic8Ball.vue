@@ -41,10 +41,8 @@ export default {
         this.isShaking = false;
         document.getElementById("question-box").disabled = false;
         this.buttonText = "Shake again!";
-      }, 3000);
-      setTimeout(() => {
         this.response = generateResponse();
-      }, 3025);
+      }, 3000);
     },
     shake8ball() {
       this.image = "magic-8-ball-up.png";
